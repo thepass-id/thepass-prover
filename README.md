@@ -38,7 +38,7 @@ To start the web server, run the following command:
 ```sh
 cargo run
 ```
-The server will now be running at http://127.0.0.1:8090.
+The server will now be running at http://0.0.0.0:8090.
 ### 4. Log Level Configuration
 To adjust the log level, you can set the `RUST_LOG` environment variable before running the server. For example, to enable debug-level logging, run the following:
 
@@ -53,7 +53,7 @@ To generate a STARK proof for a given secret, send a GET request to the `/stark-
 #### Request:
 
 ```sh
-curl http://127.0.0.1:8090/stark-proof/mysecret123
+curl http://0.0.0.0:8090/stark-proof/mysecret123
 ```
 #### Response:  
 
@@ -74,7 +74,7 @@ If there is an error during the proof generation process, an error response will
 #### Example:
 
 ```sh
-curl http://127.0.0.1:8090/stark-proof/mysecret123
+curl http://0.0.0.0:8090/stark-proof/mysecret123
 ```
 #### Response:
 

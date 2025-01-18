@@ -45,7 +45,7 @@ async fn stark_proof_handler(path: web::Path<String>) -> impl Responder {
 
 /// The entry point of the application.
 ///
-/// This function initializes the proof generation server and starts it at `http://127.0.0.1:8090`.
+/// This function initializes the proof generation server and starts it at `http://0.0.0.0:8090`.
 /// It sets up a single service for handling `/stark-proof/{secret}` requests.
 ///
 /// Logs:
@@ -59,7 +59,7 @@ async fn main() -> std::io::Result<()> {
     env_logger::init();
 
     // Log server start-up.
-    info!("Starting server at http://127.0.0.1:8090");
+    info!("Starting server at http://0.0.0.0:8090");
 
     // Configure and run the Actix Web server.
     HttpServer::new(move || {
@@ -67,7 +67,7 @@ async fn main() -> std::io::Result<()> {
             // Register the handler for `/stark-proof/{secret}`.
             .service(stark_proof_handler)
     })
-    .bind("127.0.0.1:8090")?
+    .bind("0.0.0.0:8090")?
     .run()
     .await
 }
